@@ -25,6 +25,25 @@
     
     
     
+  <url>
+    <loc>https://laoxuyo.github.io/2018/08/07/this/</loc>
+    <lastmod>2018-11-13T01:53:23.737Z</lastmod>
+    <data>
+        <display>
+        <title>YDKJS中的this</title>
+        <pubTime>2018-08-07T08:20:50.000Z</pubTime>
+        
+        <tag>JS</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>https://laoxuyo.github.io/2018/03/07/%E9%AB%98%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
@@ -46,20 +65,21 @@
     </url>
 
     
+    
   <url>
-    <loc>https://laoxuyo.github.io/2018/08/07/this/</loc>
-    <lastmod>2018-11-13T01:53:23.737Z</lastmod>
+    <loc>https://laoxuyo.github.io/2018/10/05/reactMultiple/</loc>
+    <lastmod>2018-11-13T01:53:23.736Z</lastmod>
     <data>
         <display>
-        <title>YDKJS中的this</title>
-        <pubTime>2018-08-07T08:20:50.000Z</pubTime>
+        <title>react配置多页面应用</title>
+        <pubTime>2018-10-05T12:25:10.000Z</pubTime>
         
-        <tag>JS</tag>
+        <tag>react webpack</tag>
          
          
            
              
-              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
+              <breadCrumb title="react" url="https://laoxuyo.github.io/categories/react/"/>
           
         </display>
     </data>
@@ -87,39 +107,19 @@
 
     
   <url>
-    <loc>https://laoxuyo.github.io/2018/10/05/reactMultiple/</loc>
-    <lastmod>2018-11-13T01:53:23.736Z</lastmod>
-    <data>
-        <display>
-        <title>react配置多页面应用</title>
-        <pubTime>2018-10-05T12:25:10.000Z</pubTime>
-        
-        <tag>react webpack</tag>
-         
-         
-           
-             
-              <breadCrumb title="react" url="https://laoxuyo.github.io/categories/react/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://laoxuyo.github.io/2018/07/16/Promise/</loc>
+    <loc>https://laoxuyo.github.io/2018/09/18/event/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
         <display>
-        <title>Promise</title>
-        <pubTime>2018-07-16T02:40:50.000Z</pubTime>
+        <title>事件冒泡、事件捕获和事件委托</title>
+        <pubTime>2018-09-18T08:30:00.000Z</pubTime>
         
-        <tag>ES6 JS</tag>
+        <tag>JS</tag>
          
          
            
              
-              <breadCrumb title="ES6" url="https://laoxuyo.github.io/categories/ES6/"/>
+              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
           
         </display>
     </data>
@@ -147,19 +147,19 @@
 
     
   <url>
-    <loc>https://laoxuyo.github.io/2018/09/18/event/</loc>
+    <loc>https://laoxuyo.github.io/2018/07/16/Promise/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
         <display>
-        <title>事件冒泡、事件捕获和事件委托</title>
-        <pubTime>2018-09-18T08:30:00.000Z</pubTime>
+        <title>Promise</title>
+        <pubTime>2018-07-16T02:40:50.000Z</pubTime>
         
-        <tag>JS</tag>
+        <tag>ES6 JS</tag>
          
          
            
              
-              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
+              <breadCrumb title="ES6" url="https://laoxuyo.github.io/categories/ES6/"/>
           
         </display>
     </data>
