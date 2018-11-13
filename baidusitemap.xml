@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://laoxuyo.github.io/2018/11/13/papaparse/</loc>
-    <lastmod>2018-11-13T02:08:02.688Z</lastmod>
+    <lastmod>2018-11-13T02:13:06.046Z</lastmod>
     <data>
         <display>
         <title>Papa Parse解析打包csv以及数组的一些操作</title>
@@ -24,26 +24,6 @@
 
     
     
-    
-  <url>
-    <loc>https://laoxuyo.github.io/2018/08/07/this/</loc>
-    <lastmod>2018-11-13T01:53:23.737Z</lastmod>
-    <data>
-        <display>
-        <title>YDKJS中的this</title>
-        <pubTime>2018-08-07T08:20:50.000Z</pubTime>
-        
-        <tag>JS</tag>
-         
-         
-           
-             
-              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>https://laoxuyo.github.io/2018/03/07/%E9%AB%98%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
@@ -65,6 +45,26 @@
     </url>
 
     
+    
+  <url>
+    <loc>https://laoxuyo.github.io/2018/08/07/this/</loc>
+    <lastmod>2018-11-13T01:53:23.737Z</lastmod>
+    <data>
+        <display>
+        <title>YDKJS中的this</title>
+        <pubTime>2018-08-07T08:20:50.000Z</pubTime>
+        
+        <tag>JS</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>https://laoxuyo.github.io/2018/10/05/reactMultiple/</loc>
@@ -107,19 +107,19 @@
 
     
   <url>
-    <loc>https://laoxuyo.github.io/2018/09/18/event/</loc>
+    <loc>https://laoxuyo.github.io/2018/09/02/Git/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
         <display>
-        <title>事件冒泡、事件捕获和事件委托</title>
-        <pubTime>2018-09-18T08:30:00.000Z</pubTime>
+        <title>Git</title>
+        <pubTime>2018-09-02T12:30:33.000Z</pubTime>
         
-        <tag>JS</tag>
+        <tag>Git</tag>
          
          
            
              
-              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
+              <breadCrumb title="Git" url="https://laoxuyo.github.io/categories/Git/"/>
           
         </display>
     </data>
@@ -147,6 +147,26 @@
 
     
   <url>
+    <loc>https://laoxuyo.github.io/2018/09/18/event/</loc>
+    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
+    <data>
+        <display>
+        <title>事件冒泡、事件捕获和事件委托</title>
+        <pubTime>2018-09-18T08:30:00.000Z</pubTime>
+        
+        <tag>JS</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://laoxuyo.github.io/2018/07/16/Promise/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
@@ -160,26 +180,6 @@
            
              
               <breadCrumb title="ES6" url="https://laoxuyo.github.io/categories/ES6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://laoxuyo.github.io/2018/09/02/Git/</loc>
-    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
-    <data>
-        <display>
-        <title>Git</title>
-        <pubTime>2018-09-02T12:30:33.000Z</pubTime>
-        
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="Git" url="https://laoxuyo.github.io/categories/Git/"/>
           
         </display>
     </data>
