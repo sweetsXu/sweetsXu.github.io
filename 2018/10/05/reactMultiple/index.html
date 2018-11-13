@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="react webpack," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.新建一个项目1234npm install -g create-react-appcreate-react-app democd demonpm start 2.暴露配置 1npm run eject 可以看到多了一个config和一个script文件夹 3.在src下新建一个admin.js文件 4.修改config下webpack.config.dev.js文件中的entry 123456">
+<meta name="keywords" content="react webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react配置多页面应用">
+<meta property="og:url" content="https://laoxuyo.github.io/2018/10/05/reactMultiple/index.html">
+<meta property="og:site_name" content="老徐的博客">
+<meta property="og:description" content="1.新建一个项目1234npm install -g create-react-appcreate-react-app democd demonpm start 2.暴露配置 1npm run eject 可以看到多了一个config和一个script文件夹 3.在src下新建一个admin.js文件 4.修改config下webpack.config.dev.js文件中的entry 123456">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-13T01:53:23.736Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react配置多页面应用">
+<meta name="twitter:description" content="1.新建一个项目1234npm install -g create-react-appcreate-react-app democd demonpm start 2.暴露配置 1npm run eject 可以看到多了一个config和一个script文件夹 3.在src下新建一个admin.js文件 4.修改config下webpack.config.dev.js文件中的entry 123456">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://laoxuyo.github.io/2018/10/05/reactMultiple/"/>
+
+
+
+
+
+  <title>react配置多页面应用 | 老徐的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/laoxuyo" class="github-corner" aria-label="View source on Github">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+    </a>
+    <style>
+    .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+    </style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">老徐的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://laoxuyo.github.io/2018/10/05/reactMultiple/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老徐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老徐的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react配置多页面应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-05T20:25:10+08:00">
+                2018-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.新建一个项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app demo</span><br><span class="line"><span class="built_in">cd</span> demo</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
+<p>2.暴露配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run eject</span><br></pre></td></tr></table></figure>
+<p>可以看到多了一个config和一个script文件夹</p>
+<p>3.在src下新建一个admin.js文件</p>
+<p>4.修改config下webpack.config.dev.js文件中的entry</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有多少个页面就添加多少个key:value对，数组中的paths.appSrc+'/admin.js'就是这个html页面的入口文件</span></span><br><span class="line">   entry: &#123; </span><br><span class="line">       index:[</span><br><span class="line">           <span class="built_in">require</span>.resolve(<span class="string">'./polyfills'</span>),</span><br><span class="line">           <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</span><br><span class="line">           paths.appIndexJs,</span><br><span class="line">       ],</span><br><span class="line">       admin:[</span><br><span class="line">           <span class="built_in">require</span>.resolve(<span class="string">'./polyfills'</span>),</span><br><span class="line">           <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</span><br><span class="line">           paths.appSrc + <span class="string">'/admin.js'</span>,</span><br><span class="line">       ]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>5.修改output，对应生成boundle.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename: <span class="string">'static/js/[name].bundle.js'</span></span><br></pre></td></tr></table></figure></p>
+<p>6.修改plugins中的HtmlWebpackPlugin<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多少个页面就new 多少个 HtmlWebpackPlugin 并且在每一个里面的chunks都需要和上面的entry中的key匹配，例如上面entry中有index和admin这两个。这里的chunks也需要是index和admin</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        inject: <span class="literal">true</span>,</span><br><span class="line">        chunks:[<span class="string">"index"</span>],</span><br><span class="line">        template: paths.appHtml,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        inject: <span class="literal">true</span>,</span><br><span class="line">        chunks:[<span class="string">"admin"</span>],</span><br><span class="line">        template:paths.appHtml,</span><br><span class="line">        filename:<span class="string">'admin.html'</span></span><br><span class="line">    &#125;),</span><br><span class="line"><span class="string">``</span><span class="string">`    </span></span><br><span class="line"><span class="string">7.按照步骤456修改config下的webpack.config.prod.js文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">8.运行</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>bash</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
+<p>在页面上修改路径，发现不管是什么路径都是index.html的页面内容，因为在开发环境中如果想通过地址访问不同的页面，需要修改webpackDevServer.config.js中的historyApiFallback<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//这里的rewrites:[ &#123;from: /^\/admin.html/, to: '/build/admin.html' &#125;] 数组里面是一个个对象，对象中前面的值是在开发时候访问的路径，例如 npm start之后会监听 localhost:3000 ，此时在后面加上 /admin.html就会访问admin.html中的内容，默认是访问index.html；数组中的第二个值是生产环境下的文件的路径。如果有很多页面，就在rewrites中添加更多对象</span></span><br><span class="line">    historyApiFallback: &#123;</span><br><span class="line">      disableDotRule: <span class="literal">true</span>,</span><br><span class="line">      rewrites: [</span><br><span class="line">        &#123; <span class="attr">from</span>: <span class="regexp">/^\/admin.html/</span>, <span class="attr">to</span>: <span class="string">'/build/admin.html'</span> &#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">F12查看index页面elements中引入的script是index.bundle.js，而admin页面引入的是admin.bundle.js，说明多页面配置成功。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">9.如果需要配置的页面很多</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">安装glob（node的glob模块允许使用*等符号来进行匹配）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>bash</span><br><span class="line">npm install glob</span><br></pre></td></tr></table></figure></p>
+<p>在webpack.config.dev.js中引入glob工具</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> glob = <span class="built_in">require</span>(<span class="string">"glob"</span>)</span><br></pre></td></tr></table></figure>
+<p>引入path对象主要用到两个方法</p>
+<p>path.basename(p, [ext]) 特点：返回指定的文件名，返回结果可排除[ext]后缀字符串。示例：path.basename(‘/foo/bar/baz/asdf/quux.html’)=&gt;’quux.html’</p>
+<p> path.extname(p)特点：返回指定文件名的扩展名称 .示例：path.extname(‘index.html’)=&gt;’.html’</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过getEntry函数获取所有js脚本</span></span><br><span class="line"><span class="keyword">let</span> jsEntries = getEntry(<span class="string">'./src/*.js'</span>);</span><br><span class="line">...</span><br><span class="line"><span class="comment">//入口文件</span></span><br><span class="line">entry:jsEntries</span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> tplPages = <span class="built_in">Object</span>.keys(jsEntries);</span><br><span class="line">tplPages.forEach(<span class="function">(<span class="params">pathname</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> conf = &#123;</span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    chunks: [pathname],</span><br><span class="line">    template: paths.appHtml,</span><br><span class="line">    filename: pathname + <span class="string">'.html'</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  config.plugins.push(<span class="keyword">new</span> HtmlWebpackPlugin(conf));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = config;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getEntry</span>(<span class="params">globPath</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//获取globPath路径下的所有文件</span></span><br><span class="line">  <span class="keyword">let</span> files = glob.sync(globPath);</span><br><span class="line">  <span class="keyword">let</span> entries = &#123;&#125;,</span><br><span class="line">      entry, basename, extname;</span><br><span class="line">  <span class="comment">//循环</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; files.length; i++) &#123;</span><br><span class="line">      entry = files[i];</span><br><span class="line">      extname = path.extname(entry);<span class="comment">//返回指定文件名的扩展名称,.js</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * path.basename(p, [ext])</span></span><br><span class="line"><span class="comment">       * 返回指定的文件名，返回结果可排除[ext]后缀字符串</span></span><br><span class="line"><span class="comment">       * path.basename('/foo/bar/baz/asdf/quux.html', '.html')=&gt;quux</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      basename = path.basename(entry, extname);<span class="comment">//index等</span></span><br><span class="line">      entries[basename] = entry;<span class="comment">//&#123; admin: './src/admin.js', index: './src/index.js' &#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> entries;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行npm run build 后打开index.html空白，查看控制台信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">The project was built assuming it is hosted at the server root.</span><br><span class="line">You can control this with the homepage field in your package.json.</span><br><span class="line">For example, add this to build it for GitHub Pages:</span><br><span class="line"></span><br><span class="line">  &quot;homepage&quot; : &quot;http://myname.github.io/myapp&quot;,</span><br><span class="line"></span><br><span class="line">The build folder is ready to be deployed.</span><br><span class="line">You may serve it with a static server:</span><br><span class="line"></span><br><span class="line">  yarn global add serve</span><br><span class="line">  serve -s build</span><br></pre></td></tr></table></figure></p>
+<p>在package.json中添加homepage属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"name"</span>: <span class="string">"react-multiple"</span>,</span><br><span class="line"> <span class="string">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line"> <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line"> <span class="string">"homepage"</span>: <span class="string">"./"</span>,</span><br><span class="line"> <span class="string">"dependencies"</span>: </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>重新打包即可</p>
+<p>demo地址：<a href="https://github.com/laoxuyo/react-multiple" target="_blank" rel="noopener">GitHub</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react-webpack/" rel="tag"># react webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/18/event/" rel="next" title="事件冒泡、事件捕获和事件委托">
+                <i class="fa fa-chevron-left"></i> 事件冒泡、事件捕获和事件委托
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/13/papaparse/" rel="prev" title="Papa Parse解析打包csv以及数组的一些操作">
+                Papa Parse解析打包csv以及数组的一些操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="老徐" />
+            
+              <p class="site-author-name" itemprop="name">老徐</p>
+              <p class="site-description motion-element" itemprop="description">这是描述</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=33715893&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">老徐</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
