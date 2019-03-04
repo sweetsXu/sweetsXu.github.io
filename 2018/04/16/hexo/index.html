@@ -87,12 +87,14 @@
 <meta property="og:site_name" content="老徐的博客">
 <meta property="og:description" content="hexo安装git、node、注册一个github账号 安装鼠标右键-Git Bash Here，全局安装hexo-cli 1npm install -g hexo-cli 查看版本号 1hexo -v 安装hexo 1npm install hexo --save 新建文件夹myBlog，在该文件夹下打开git bash here,执行 12hexo initnpm install 安装hexo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://laoxuyo.github.io/2018/04/16/img/hexo.jpg">
-<meta property="og:updated_time" content="2018-11-13T01:53:23.735Z">
+<meta property="og:image" content="https://i.imgur.com/FI320Gy.png">
+<meta property="og:image" content="https://i.imgur.com/QORR3Gq.png">
+<meta property="og:image" content="https://i.imgur.com/cM7fGo5.png">
+<meta property="og:updated_time" content="2019-03-04T07:22:27.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客">
 <meta name="twitter:description" content="hexo安装git、node、注册一个github账号 安装鼠标右键-Git Bash Here，全局安装hexo-cli 1npm install -g hexo-cli 查看版本号 1hexo -v 安装hexo 1npm install hexo --save 新建文件夹myBlog，在该文件夹下打开git bash here,执行 12hexo initnpm install 安装hexo">
-<meta name="twitter:image" content="https://laoxuyo.github.io/2018/04/16/img/hexo.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/FI320Gy.png">
 
 
 
@@ -345,6 +347,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -360,22 +367,6 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="/../img/hexo.jpg" rel="gallery_cjof4b2sp000b5kdi2brvj9it"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="/../img/hexo.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
       
 
       
@@ -452,13 +443,21 @@
 <h4 id="设置网站logo"><a href="#设置网站logo" class="headerlink" title="设置网站logo"></a>设置网站logo</h4><p>在<a href="https://tool.lu/favicon/" target="_blank" rel="noopener">Favicon在线制作工具</a>中制作32*32的.ico图片，然后放在source/images下面。然后在主题配置文件下添加主题配置文件中添加：favicon: images/favicon.ico</p>
 <h4 id="添加访问量"><a href="#添加访问量" class="headerlink" title="添加访问量"></a>添加访问量</h4><p>在主题的_config.yml文件里面</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  # count values only if the other configs are false</span><br><span class="line">  enable: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>开启之后无法统计，原因是js文件地址错误，在/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件中修改地址即可。</p>
 <p>在本地查看发现访问量异常地大，这是正常现象，因为使用不蒜子统计的用户都使用同一个存储空间，如果你的URL和别人重复，就会出现数据量异常。这样的情况一般出现在你使用localhost:4000访问自己在本地部署的网页的时候。</p>
+<p>遇到不蒜子无法统计问题，原因是<a href="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js无法访问，在/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件中修改地址即可" target="_blank" rel="noopener">https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js无法访问，在/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件中修改地址即可</a></p>
 <h4 id="设置右侧菜单默认显示"><a href="#设置右侧菜单默认显示" class="headerlink" title="设置右侧菜单默认显示"></a>设置右侧菜单默认显示</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line">  display: always</span><br></pre></td></tr></table></figure>
 <h4 id="在右上角或者左上角实现fork-me-on-github"><a href="#在右上角或者左上角实现fork-me-on-github" class="headerlink" title="在右上角或者左上角实现fork me on github"></a>在右上角或者左上角实现fork me on github</h4><p>在<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">这里</a>复制自己喜欢的样式的代码</p>
 <p>找到<code>themes/next/layout/_layout.swig</code>文件</p>
 <p>放到下列代码的后面，并把href改为你的Github地址</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"headband"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="添加音乐"><a href="#添加音乐" class="headerlink" title="添加音乐"></a>添加音乐</h4><p>这里用的是next主题<br>打开网易云音乐官网，点开你要添加的歌曲，打开歌曲主页，可以看到图片下方有个链接，点击生成外链播放器，复制HTML代码，添加到themes/next/layout/_macro/sidebar.swig下，放在&lt;/div&gt;&lt;/aside&gt;的前面</p>
+<h3 id="GitHub-hexo绑定自己的域名"><a href="#GitHub-hexo绑定自己的域名" class="headerlink" title="GitHub hexo绑定自己的域名"></a>GitHub hexo绑定自己的域名</h3><p>1.获取IP地址，通过ping xxx.github.io得到。</p>
+<p>2.打开阿里云域名配置页面，点击解析，设置一下A和CNAME</p>
+<p><img src="https://i.imgur.com/FI320Gy.png" alt="image"></p>
+<p><img src="https://i.imgur.com/QORR3Gq.png" alt="image"></p>
+<p>2.在Github的xxx.github.io项目,进入【Settings】标签页,在【Custom domain】功能中,填写自己的域名。<br><img src="https://i.imgur.com/cM7fGo5.png" alt="image"></p>
+<p>4.在hexo项目的source文件夹下，新建一个名为CNAME的文件，写入自己的域名即可。</p>
 
       
     </div>
@@ -572,7 +571,7 @@
                 alt="老徐" />
             
               <p class="site-author-name" itemprop="name">老徐</p>
-              <p class="site-description motion-element" itemprop="description">这是描述</p>
+              <p class="site-description motion-element" itemprop="description">share is happiness</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -637,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo"><span class="nav-number">1.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建GitHub-pages"><span class="nav-number">3.</span> <span class="nav-text">创建GitHub pages</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建仓库"><span class="nav-number">3.1.</span> <span class="nav-text">新建仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH秘钥"><span class="nav-number">4.</span> <span class="nav-text">配置SSH秘钥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否存在ssh秘钥"><span class="nav-number">4.1.</span> <span class="nav-text">检查是否存在ssh秘钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制公钥到GitHub中"><span class="nav-number">4.2.</span> <span class="nav-text">复制公钥到GitHub中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">4.3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置用户信息"><span class="nav-number">4.4.</span> <span class="nav-text">设置用户信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地文件同步"><span class="nav-number">5.</span> <span class="nav-text">本地文件同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程中遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">安装过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">6.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">6.2.</span> <span class="nav-text">2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面是一些配置"><span class="nav-number">7.</span> <span class="nav-text">下面是一些配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加主题"><span class="nav-number">7.1.</span> <span class="nav-text">添加主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next主题添加动态背景"><span class="nav-number">7.2.</span> <span class="nav-text">next主题添加动态背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布文章"><span class="nav-number">7.3.</span> <span class="nav-text">发布文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何设置首页是列表预览模式"><span class="nav-number">7.4.</span> <span class="nav-text">如何设置首页是列表预览模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分类、标签页面"><span class="nav-number">7.5.</span> <span class="nav-text">创建分类、标签页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置网站logo"><span class="nav-number">7.6.</span> <span class="nav-text">设置网站logo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加访问量"><span class="nav-number">7.7.</span> <span class="nav-text">添加访问量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置右侧菜单默认显示"><span class="nav-number">7.8.</span> <span class="nav-text">设置右侧菜单默认显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在右上角或者左上角实现fork-me-on-github"><span class="nav-number">7.9.</span> <span class="nav-text">在右上角或者左上角实现fork me on github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加音乐"><span class="nav-number">7.10.</span> <span class="nav-text">添加音乐</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo"><span class="nav-number">1.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建GitHub-pages"><span class="nav-number">3.</span> <span class="nav-text">创建GitHub pages</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建仓库"><span class="nav-number">3.1.</span> <span class="nav-text">新建仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH秘钥"><span class="nav-number">4.</span> <span class="nav-text">配置SSH秘钥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否存在ssh秘钥"><span class="nav-number">4.1.</span> <span class="nav-text">检查是否存在ssh秘钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制公钥到GitHub中"><span class="nav-number">4.2.</span> <span class="nav-text">复制公钥到GitHub中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">4.3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置用户信息"><span class="nav-number">4.4.</span> <span class="nav-text">设置用户信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地文件同步"><span class="nav-number">5.</span> <span class="nav-text">本地文件同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程中遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">安装过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">6.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">6.2.</span> <span class="nav-text">2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面是一些配置"><span class="nav-number">7.</span> <span class="nav-text">下面是一些配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加主题"><span class="nav-number">7.1.</span> <span class="nav-text">添加主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next主题添加动态背景"><span class="nav-number">7.2.</span> <span class="nav-text">next主题添加动态背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布文章"><span class="nav-number">7.3.</span> <span class="nav-text">发布文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何设置首页是列表预览模式"><span class="nav-number">7.4.</span> <span class="nav-text">如何设置首页是列表预览模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分类、标签页面"><span class="nav-number">7.5.</span> <span class="nav-text">创建分类、标签页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置网站logo"><span class="nav-number">7.6.</span> <span class="nav-text">设置网站logo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加访问量"><span class="nav-number">7.7.</span> <span class="nav-text">添加访问量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置右侧菜单默认显示"><span class="nav-number">7.8.</span> <span class="nav-text">设置右侧菜单默认显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在右上角或者左上角实现fork-me-on-github"><span class="nav-number">7.9.</span> <span class="nav-text">在右上角或者左上角实现fork me on github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加音乐"><span class="nav-number">7.10.</span> <span class="nav-text">添加音乐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-hexo绑定自己的域名"><span class="nav-number">8.</span> <span class="nav-text">GitHub hexo绑定自己的域名</span></a></li></ol></div>
             
 
           </div>
@@ -656,7 +655,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -680,6 +679,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 

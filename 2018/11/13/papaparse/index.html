@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="老徐的博客">
 <meta property="og:description" content="安装引入12npm install papaparseimport Papa from &apos;papaparse&apos;; 解析成数组1234567Papa.parse(csvUrl, &amp;#123;  download: true,  //header: true, //如果要解析成对象数组加上这一句  complete: (results) =&amp;gt; &amp;#123;    let data = resul">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-13T02:13:06.046Z">
+<meta property="og:updated_time" content="2019-03-04T07:18:06.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Papa Parse解析打包csv以及数组的一些操作">
 <meta name="twitter:description" content="安装引入12npm install papaparseimport Papa from &apos;papaparse&apos;; 解析成数组1234567Papa.parse(csvUrl, &amp;#123;  download: true,  //header: true, //如果要解析成对象数组加上这一句  complete: (results) =&amp;gt; &amp;#123;    let data = resul">
@@ -343,6 +343,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -370,7 +375,7 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> keys = [<span class="string">'date'</span>, <span class="string">'name'</span>, <span class="string">'bigNO'</span>, <span class="string">'bigName'</span>, <span class="string">'dealerNO'</span>, <span class="string">'dealerName'</span>, <span class="string">'chainNO'</span>, <span class="string">'chainName'</span>, <span class="string">'storeNO'</span>, <span class="string">'storeName'</span>]</span><br><span class="line">data.shift(); <span class="comment">// 解析出来的第一项数组是表头，去掉表头</span></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">  obj = &#123;<span class="attr">other</span>: []&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; data[i].length; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (j &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">      obj[<span class="keyword">this</span>.keys[j]] = data[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; <span class="number">9</span> &amp;&amp; (j - <span class="number">9</span>) % <span class="number">4</span> === <span class="number">1</span>) &#123;</span><br><span class="line">      obj.other.push(&#123;</span><br><span class="line">        project: data[i][j],</span><br><span class="line">        picture: data[i][j + <span class="number">1</span>],</span><br><span class="line">        time: data[i][j + <span class="number">2</span>],</span><br><span class="line">        address: data[i][j + <span class="number">3</span>]&#125;</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.push(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
 <p>一开始我用的是obj.other = []，发现所有的数据都是最后一条记录。原因是obj.other这种写法，obj的指向的地址没变，还是指向那个堆，下次循环的时候改了obj，之前push进去的数据也被修改了。而obj={other:[]}重置了obj，指向的地址变了。</p>
-<h3 id="打包成csv并下载"><a href="#打包成csv并下载" class="headerlink" title="打包成csv并下载"></a>打包成csv并下载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> csv = Papa.unparse(data);</span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> Blob([<span class="string">'\uFEFF'</span> + csv], &#123; <span class="attr">type</span>: <span class="string">'text/csv;charset=utf-8'</span> &#125;);</span><br><span class="line"><span class="keyword">const</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">link.href = URL.createObjectURL(blob);</span><br><span class="line"><span class="keyword">const</span> fileName = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">link.download = <span class="string">`<span class="subst">$&#123;fileName&#125;</span>.csv`</span>; <span class="comment">// 这里填保存成的文件名</span></span><br><span class="line">link.click();</span><br><span class="line">URL.revokeObjectURL(link.href);</span><br></pre></td></tr></table></figure>
+<h3 id="打包成csv并下载"><a href="#打包成csv并下载" class="headerlink" title="打包成csv并下载"></a>打包成csv并下载</h3><p>IE、Safari、Opera都不支持a标签的download属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> csv = Papa.unparse(data);</span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> Blob([<span class="string">'\uFEFF'</span> + csv], &#123; <span class="attr">type</span>: <span class="string">'text/csv;charset=utf-8'</span> &#125;);</span><br><span class="line"><span class="keyword">const</span> fileName = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.navigator.msSaveOrOpenBlob) &#123; <span class="comment">// if browser is IE</span></span><br><span class="line">  navigator.msSaveBlob(blob, <span class="string">`<span class="subst">$&#123;fileName&#125;</span>.csv`</span>);<span class="comment">// filename文件名包括扩展名，下载路径为浏览器默认路径</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">  link.setAttribute(<span class="string">'href'</span>, URL.createObjectURL(blob));</span><br><span class="line">  link.setAttribute(<span class="string">'download'</span>, <span class="string">`<span class="subst">$&#123;fileName&#125;</span>.csv`</span>);</span><br><span class="line">  link.click();</span><br><span class="line">  URL.revokeObjectURL(link.href);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p>data可以是数组或对象，也可以是一个自定义fields和data的对象，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> csv = Papa.unparse(&#123;</span><br><span class="line">	fields: [<span class="string">"Column 1"</span>, <span class="string">"Column 2"</span>],</span><br><span class="line">	data: [</span><br><span class="line">		[<span class="string">"foo"</span>, <span class="string">"bar"</span>],</span><br><span class="line">		[<span class="string">"abc"</span>, <span class="string">"def"</span>]</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>期间遇到了文件数据乱码问题，后来加上{ type: ‘text/csv;charset=utf-8’}解决了。</p>
 <p><a href="https://www.papaparse.com/" target="_blank" rel="noopener">Papa Parse官方例子及文档地址</a></p>
@@ -483,7 +488,7 @@
                 alt="老徐" />
             
               <p class="site-author-name" itemprop="name">老徐</p>
-              <p class="site-description motion-element" itemprop="description">这是描述</p>
+              <p class="site-description motion-element" itemprop="description">share is happiness</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -567,7 +572,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -591,6 +596,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
