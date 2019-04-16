@@ -127,26 +127,6 @@
 
     
   <url>
-    <loc>https://laoxuyo.github.io/2018/09/18/event/</loc>
-    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
-    <data>
-        <display>
-        <title>事件冒泡、事件捕获和事件委托</title>
-        <pubTime>2018-09-18T08:30:00.000Z</pubTime>
-        
-        <tag>JS</tag>
-         
-         
-           
-             
-              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://laoxuyo.github.io/2018/07/16/Promise/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
@@ -160,6 +140,26 @@
            
              
               <breadCrumb title="ES6" url="https://laoxuyo.github.io/categories/ES6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://laoxuyo.github.io/2018/09/18/event/</loc>
+    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
+    <data>
+        <display>
+        <title>事件冒泡、事件捕获和事件委托</title>
+        <pubTime>2018-09-18T08:30:00.000Z</pubTime>
+        
+        <tag>JS</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
           
         </display>
     </data>
