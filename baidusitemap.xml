@@ -127,6 +127,26 @@
 
     
   <url>
+    <loc>https://laoxuyo.github.io/2018/09/02/Git/</loc>
+    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
+    <data>
+        <display>
+        <title>Git</title>
+        <pubTime>2018-09-02T12:30:33.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="Git" url="https://laoxuyo.github.io/categories/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://laoxuyo.github.io/2018/07/16/Promise/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
@@ -160,26 +180,6 @@
            
              
               <breadCrumb title="JS" url="https://laoxuyo.github.io/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://laoxuyo.github.io/2018/09/02/Git/</loc>
-    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
-    <data>
-        <display>
-        <title>Git</title>
-        <pubTime>2018-09-02T12:30:33.000Z</pubTime>
-        
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="Git" url="https://laoxuyo.github.io/categories/Git/"/>
           
         </display>
     </data>
