@@ -87,26 +87,6 @@
 
     
   <url>
-    <loc>https://laoxuyo.github.io/2018/09/04/lazyLoad/</loc>
-    <lastmod>2018-11-13T01:53:23.736Z</lastmod>
-    <data>
-        <display>
-        <title>图片懒加载</title>
-        <pubTime>2018-09-04T04:01:50.000Z</pubTime>
-        
-        <tag>img</tag>
-         
-         
-           
-             
-              <breadCrumb title="other" url="https://laoxuyo.github.io/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://laoxuyo.github.io/2018/10/05/reactMultiple/</loc>
     <lastmod>2018-11-13T01:53:23.736Z</lastmod>
     <data>
@@ -120,6 +100,26 @@
            
              
               <breadCrumb title="react" url="https://laoxuyo.github.io/categories/react/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://laoxuyo.github.io/2018/09/04/lazyLoad/</loc>
+    <lastmod>2018-11-13T01:53:23.736Z</lastmod>
+    <data>
+        <display>
+        <title>图片懒加载</title>
+        <pubTime>2018-09-04T04:01:50.000Z</pubTime>
+        
+        <tag>img</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="https://laoxuyo.github.io/categories/other/"/>
           
         </display>
     </data>
@@ -147,26 +147,6 @@
 
     
   <url>
-    <loc>https://laoxuyo.github.io/2018/09/02/Git/</loc>
-    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
-    <data>
-        <display>
-        <title>Git</title>
-        <pubTime>2018-09-02T12:30:33.000Z</pubTime>
-        
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="Git" url="https://laoxuyo.github.io/categories/Git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://laoxuyo.github.io/2018/07/16/Promise/</loc>
     <lastmod>2018-11-13T01:53:23.735Z</lastmod>
     <data>
@@ -180,6 +160,26 @@
            
              
               <breadCrumb title="ES6" url="https://laoxuyo.github.io/categories/ES6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://laoxuyo.github.io/2018/09/02/Git/</loc>
+    <lastmod>2018-11-13T01:53:23.735Z</lastmod>
+    <data>
+        <display>
+        <title>Git</title>
+        <pubTime>2018-09-02T12:30:33.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="Git" url="https://laoxuyo.github.io/categories/Git/"/>
           
         </display>
     </data>
