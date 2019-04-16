@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://i.imgur.com/FI320Gy.png">
 <meta property="og:image" content="https://i.imgur.com/QORR3Gq.png">
 <meta property="og:image" content="https://i.imgur.com/cM7fGo5.png">
-<meta property="og:updated_time" content="2019-03-04T07:22:27.316Z">
+<meta property="og:updated_time" content="2019-03-04T07:25:53.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客">
 <meta name="twitter:description" content="hexo安装git、node、注册一个github账号 安装鼠标右键-Git Bash Here，全局安装hexo-cli 1npm install -g hexo-cli 查看版本号 1hexo -v 安装hexo 1npm install hexo --save 新建文件夹myBlog，在该文件夹下打开git bash here,执行 12hexo initnpm install 安装hexo">
@@ -443,7 +443,6 @@
 <h4 id="设置网站logo"><a href="#设置网站logo" class="headerlink" title="设置网站logo"></a>设置网站logo</h4><p>在<a href="https://tool.lu/favicon/" target="_blank" rel="noopener">Favicon在线制作工具</a>中制作32*32的.ico图片，然后放在source/images下面。然后在主题配置文件下添加主题配置文件中添加：favicon: images/favicon.ico</p>
 <h4 id="添加访问量"><a href="#添加访问量" class="headerlink" title="添加访问量"></a>添加访问量</h4><p>在主题的_config.yml文件里面</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  # count values only if the other configs are false</span><br><span class="line">  enable: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>开启之后无法统计，原因是js文件地址错误，在/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件中修改地址即可。</p>
 <p>在本地查看发现访问量异常地大，这是正常现象，因为使用不蒜子统计的用户都使用同一个存储空间，如果你的URL和别人重复，就会出现数据量异常。这样的情况一般出现在你使用localhost:4000访问自己在本地部署的网页的时候。</p>
 <p>遇到不蒜子无法统计问题，原因是<a href="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js无法访问，在/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件中修改地址即可" target="_blank" rel="noopener">https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js无法访问，在/theme/next/layout/_third-party/analytics/busuanzi-counter.swig文件中修改地址即可</a></p>
 <h4 id="设置右侧菜单默认显示"><a href="#设置右侧菜单默认显示" class="headerlink" title="设置右侧菜单默认显示"></a>设置右侧菜单默认显示</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line">  display: always</span><br></pre></td></tr></table></figure>
